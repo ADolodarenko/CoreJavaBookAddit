@@ -44,10 +44,19 @@ public class CompositeTestFrame extends JFrame
 
 		alphaSlider = new JSlider(0, 100, 75);
 		alphaSlider.addChangeListener(event -> canvas.setAlpha(alphaSlider.getValue()));
-		
 
+		JPanel panel = new JPanel();
+		panel.add(ruleCombo);
+		panel.add(new JLabel("Alpha"));
+		panel.add(alphaSlider);
+		add(panel, BorderLayout.NORTH);
 
+		explanation = new JTextField();
+		add(explanation, BorderLayout.SOUTH);
 
+		canvas.setAlpha(alphaSlider.getValue());
+		Rule r = ruleCombo.getItemAt(ruleCombo.getSelectedIndex());
+		canvas.setRule(r.getValue());
+		explanation.setText(r.getExplanation());
 	}
-
 }

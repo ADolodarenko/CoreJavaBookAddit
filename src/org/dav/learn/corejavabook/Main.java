@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Main
 {
-    public static void main(String[] args)
-    {
+	public static void main(String[] args)
+	{
         /*
         LocalDate date = DateTimeUtil.getLocalDate(2016, 256);
 
@@ -25,29 +25,29 @@ public class Main
         DateFormat format = new SimpleDateFormat("dd.MM.yyyy_HH_mm_ss");
         System.out.println(format.format(new Date()));*/
 
-        ScriptEngineManager manager = new ScriptEngineManager();
-        for (ScriptEngineFactory factory : manager.getEngineFactories())
-        {
-            StringBuilder builder = new StringBuilder(factory.getEngineName());
-            builder.append(": ");
+		ScriptEngineManager manager = new ScriptEngineManager();
+		for (ScriptEngineFactory factory : manager.getEngineFactories())
+		{
+			StringBuilder builder = new StringBuilder(factory.getEngineName());
+			builder.append(": ");
 
-            completeBuilder(builder, factory.getNames(), ", ", "; ");
-            completeBuilder(builder, factory.getMimeTypes(), ", ", "; ");
-            completeBuilder(builder, factory.getExtensions(), ", ", ".");
+			completeBuilder(builder, factory.getNames(), ", ", "; ");
+			completeBuilder(builder, factory.getMimeTypes(), ", ", "; ");
+			completeBuilder(builder, factory.getExtensions(), ", ", ".");
 
-            System.out.println(builder.toString());
-        }
-    }
+			System.out.println(builder.toString());
+		}
+	}
 
-    private static void completeBuilder(StringBuilder builder, List<String> values, String separator, String suffix)
-    {
-        if (builder == null || values == null || values.isEmpty())
-            return;
+	private static void completeBuilder(StringBuilder builder, List<String> values, String separator, String suffix)
+	{
+		if (builder == null || values == null || values.isEmpty())
+			return;
 
-        for (String value : values)
-            builder.append(value).append(separator);
+		for (String value : values)
+			builder.append(value).append(separator);
 
-        builder.delete(builder.length() - 2, builder.length());
-        builder.append(suffix);
-    }
+		builder.delete(builder.length() - 2, builder.length());
+		builder.append(suffix);
+	}
 }
